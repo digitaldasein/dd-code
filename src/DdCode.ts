@@ -76,10 +76,10 @@ const DEFAULT_ATTRIBUTES = {
  * <html>
  *   [...]
  *   <dd-code>
- *      &lt;h2&gt;Automatically escaping HTML markup tags&lt;/h2&gt;
- *      &lt;div class="myclass"&gt;
- *        <p&gt;And a p element&lt;/p&gt;
- *      &lt;/div&gt;
+ *      <h2>Automatically escaping HTML markup tags</h2>
+ *      <div class="myclass">
+ *        <p>And a p element</p>
+ *      </div>
  *   </dd-code>
  *   [...]
  * </html>
@@ -168,14 +168,15 @@ export class DdCode extends LitElement {
    * - for a range, use a dash, e.g.: 2-5
    * - for all, use hl="all"
    *
+   * **Corresponding attribute:** `hl`
+   *
+   * **Default value:** `""` (empty string)
+   *
    * Example: `hl="3,4,6-10"`
    *
    * **Alternative**: put `!!!` before the line of code (at column 0)
    * (see also example above)
    *
-   * **Corresponding attribute:** `hl`
-   *
-   * **Default value:** `""` (empty string)
    */
   @property({ type: String, attribute: 'hl' })
   hl = DEFAULT_ATTRIBUTES.hl;
@@ -184,14 +185,15 @@ export class DdCode extends LitElement {
    * Comma-separated set of lines which need to be styled _italic_
    * - for a range, use a dash, e.g.: 2-5
    *
+   * **Corresponding attribute:** `italic`
+   *
+   * **Default value:** `""` (empty string)
+   *
    * Example: `italic="3,4,6-10"`
    *
    * **Alternative**: put `!` before the line of code (at column 0)
    * (see also example above)
    *
-   * **Corresponding attribute:** `italic`
-   *
-   * **Default value:** `""` (empty string)
    */
   @property({ type: String, attribute: 'italic' })
   italic = DEFAULT_ATTRIBUTES.italic;
@@ -200,14 +202,15 @@ export class DdCode extends LitElement {
    * Comma-separated set of lines which need to be styled **bold**
    * - for a range, use a dash, e.g.: 2-5
    *
+   * **Corresponding attribute:** `bold`
+   *
+   * **Default value:** `""` (empty string)
+   *
    * Example: `bold="3,4,6-10"`
    *
    * **Alternative**: put `!!` before the line of code (at column 0)
    * (see also example above)
    *
-   * **Corresponding attribute:** `italic`
-   *
-   * **Default value:** `""` (empty string)
    */
   @property({ type: String, attribute: 'bold' })
   bold = DEFAULT_ATTRIBUTES.bold;
@@ -216,22 +219,24 @@ export class DdCode extends LitElement {
    * Background color of code snippet
    * Can also be set globally with the CSS variable `--dd-code-color-bg`
    *
-   * To remove background color, set to "none"
-   *
    * **Corresponding attribute:** `bg-color`
    *
    * **Default value:** `#f3f3f3`
+   *
+   * To remove background color, set to "none"
+   *
    */
   @property({ type: String, attribute: 'bg-color' })
   bgColor = DEFAULT_ATTRIBUTES.bgColor;
 
   /**
    * Foreground (text) color of code snippet
-   * Can also be set globally with the CSS variable `--dd-code-color-fg`
    *
    * **Corresponding attribute:** `fg-color`
    *
    * **Default value:** `black`
+   *
+   * NOTE: Can also be set globally with the CSS variable `--dd-code-color-fg`
    */
   @property({ type: String, attribute: 'fg-color' })
   fgColor = DEFAULT_ATTRIBUTES.fgColor;
@@ -260,13 +265,13 @@ export class DdCode extends LitElement {
   /**
    * Do not trim (white spaces and newlines)
    *
-   * By default, the first line of code is set to the first **non**-whitespace
-   * (or newline) character within `<dd-code>`. This is moreover used as the
-   * "base column" for indentation (upper-left).
-   *
    * **Corresponding attribute:** `no-trim`
    *
    * **Default value:** `false`
+   *
+   * By default, the first line of code is set to the first **non**-whitespace
+   * (or newline) character within `<dd-code>`. This is moreover used as the
+   * "base column" for indentation (upper-left).
    */
   @property({ type: Boolean, attribute: 'no-trim' })
   noTrim = DEFAULT_ATTRIBUTES.noTrim;
