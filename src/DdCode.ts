@@ -83,6 +83,7 @@ const DEFAULT_ATTRIBUTES = {
  *   </dd-code>
  *   [...]
  * </html>
+ * ```
  *
  */
 
