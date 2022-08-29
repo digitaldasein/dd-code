@@ -26,19 +26,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
       - name: Install dependencies
         run: yarn install
-      - name: Build Docs
+      - name: Build docs
         run: yarn run docs
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run tests
+        run: yarn run test
+      - name: create site directory
+        run: mkdir -p "_site/docs" && mkdir "_site/tests"
+      - name: move files to site dir
+        run: |
+          cp -rf "./docs/*" "_site/docs/"
+          cp -rf "./coverage/lcov-report/*" "_site/tests/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload example repository
-          path: './docs'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+

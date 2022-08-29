@@ -9,12 +9,12 @@ SPDX-License-Identifier: MIT
 # \<dd-code>
 
 [![pipeline](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml/badge.svg)](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml)
-[![tests](https://github.com/digitaldasein/dd-code/actions/workflows/test.yml/badge.svg)](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/coverage/lcov-report/)
+[![tests](https://github.com/digitaldasein/dd-code/actions/workflows/test.yml/badge.svg)](https://digitaldasein.github.io/dd-code/tests)
 [![REUSE 
 status](https://api.reuse.software/badge/github.com/digitaldasein/dd-code)](https://api.reuse.software/info/github.com/digitaldasein/dd-code)
 
-
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) 
+recommendation.
 
 ## Installation
 
@@ -47,8 +47,7 @@ library.
 ## Docs
 
 &rarr; [go to 
-docs](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/docs/classes/DdCode.html)
-
+docs](https://digitaldasein.github.io/dd-code/docs/classes/DdCode.html)
 
 ## Local Demo with `web-dev-server`
 

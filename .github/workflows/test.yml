@@ -14,15 +14,6 @@ jobs:
   test:
     name: Playwright Tests
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     #container:
       #image: mcr.microsoft.com/playwright:v1.25.0-focal
@@ -37,14 +28,6 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run tests
         run: yarn run test
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload example repository
-          path: './coverage/lcov-report'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
       #- name: Code Coverage Report
         #uses: irongut/CodeCoverageSummary@v1.3.0
         #with:
