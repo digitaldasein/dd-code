@@ -10,17 +10,12 @@ on:
   push:
   pull_request:
 
-steps:
-  playwright:
-    name: 'Playwright Tests'
-    runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.25.0-focal
-    
 jobs:
   test:
     name: Playwright Tests
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.25.0-focal
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
