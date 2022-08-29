@@ -36,6 +36,25 @@ const DEFAULT_ATTRIBUTES = {
  * ```html
  * <html>
  *   [...]
+ *   <dd-code line-nrs hl="1,5-6" bold=2 italic=3>
+ *      const contentLoaded = (callback) => {
+ *          if (document.currentScript.async) {
+ *              callback();
+ *          } else {
+ *              document.addEventListener('DOMContentLoaded', callback);
+ *          }
+ *      };
+ *   </dd-code>
+ *   [...]
+ * </html>
+ * ```
+ *
+ * @example
+ * Exact same output as previous example, now using "!" to set markup
+ *
+ * ```html
+ * <html>
+ *   [...]
  *   <dd-code line-nrs>
  *      !!!const contentLoaded = (callback) => {
  *      !!    if (document.currentScript.async) {
@@ -50,23 +69,20 @@ const DEFAULT_ATTRIBUTES = {
  * ```
  *
  * @example
- * Same as previous, now using attributes
+ * Use HTML "as-is", i.e., HTML markup characteres (< and >) will automatically
+ * be replaced
  *
  * ```html
  * <html>
  *   [...]
- *   <dd-code line-nrs hl="1,5-6" bold=2 italic=3>
- *      const contentLoaded = (callback) => {
- *          if (document.currentScript.async) {
- *              callback();
- *          } else {
- *              document.addEventListener('DOMContentLoaded', callback);
- *          }
- *      };
+ *   <dd-code>
+ *      <h2>Automatically escaping HTML markup tags</h2>
+ *      <div class="myclass">
+ *        <p>And a p element</p>
+ *      </div>
  *   </dd-code>
  *   [...]
  * </html>
- * ```
  *
  */
 
@@ -315,7 +331,15 @@ export class DdCode extends LitElement {
     /* c8 ignore next */
     if ( !codeNode.textContent ) return;
 
-    const allCode = codeNode.textContent.replace(/^\n|\n$/g, '');
+    let codeString = codeNode.textContent;
+    // contain more than just #text node (interpreted as HTML markup)
+    if (this.childNodes.length > 1){
+      codeString = this.innerHTML;
+      codeString = codeString.replace(/</g,"&lt;");
+      codeString = codeString.replace(/>/g,"&gt;");
+    }
+
+    const allCode = codeString.replace(/^\n|\n$/g, '');
     const allCodeLines = allCode.split('\n');
 
     let indent = 0;
