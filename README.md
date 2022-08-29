@@ -8,7 +8,8 @@ SPDX-License-Identifier: MIT
 
 # \<dd-code>
 
-[![pipeline](https://gitlab.com/digital-dasein/software/html-presentations/dd-code/badges/main/pipeline.svg?job=build&key_text=build)](https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/pipelines)
+[![pipeline](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml/badge.svg)](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml)
+
 [![coverage](https://gitlab.com/digital-dasein/software/html-presentations/dd-code/badges/main/coverage.svg?job=test)](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/lcov-report/)
 [![REUSE 
 status](https://api.reuse.software/badge/gitlab.com/digital-dasein/software/html-presentations/dd-code)](https://api.reuse.software/info/gitlab.com/digital-dasein/software/html-presentations/dd-code)
