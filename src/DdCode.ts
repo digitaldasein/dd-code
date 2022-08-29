@@ -69,17 +69,17 @@ const DEFAULT_ATTRIBUTES = {
  * ```
  *
  * @example
- * Use HTML "as-is", i.e., HTML markup characteres (< and >) will automatically
+ * Use HTML "as-is", i.e., HTML markup characteres (&gt; and &lt;) will automatically
  * be replaced
  *
  * ```html
  * <html>
  *   [...]
  *   <dd-code>
- *      <h2>Automatically escaping HTML markup tags</h2>
- *      <div class="myclass">
- *        <p>And a p element</p>
- *      </div>
+ *      &lt;h2&gt;Automatically escaping HTML markup tags&lt;/h2&gt;
+ *      &lt;div class="myclass"&gt;
+ *        <p&gt;And a p element&lt;/p&gt;
+ *      &lt;/div&gt;
  *   </dd-code>
  *   [...]
  * </html>
