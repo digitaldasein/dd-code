@@ -38,6 +38,8 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run tests
         run: yarn run test
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
       #- name: create site directory
         #run: mkdir -p "_site/docs" && mkdir "_site/tests"
       #- name: move files to site dir
