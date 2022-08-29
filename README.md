@@ -41,8 +41,7 @@ As a module:
 
 For a production-ready build, either integrated into a library or standalone, 
 check out the
-[libcompono](https://gitlab.com/digital-dasein/software/html-presentations/libcompono) 
-library.
+[libcompono](https://github.com/digitaldasein/libcompono) library.
 
 ## Docs
 
@@ -87,7 +86,7 @@ To run the tests in interactive watch mode run:
 yarn test:watch
 ```
 Test results are available 
-[here](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/lcov-report/).
+[here](https://digitaldasein.github.io/dd-code/coverage/lcov-report).
 
 
 ## Tooling configs
