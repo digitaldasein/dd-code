@@ -21,12 +21,13 @@
 HTML attribute</strong>. The <em>non-attribute</em> properties are consired private,
 and are ingored in the documentation.</p>
 
-<h3>Example</h3><p>A simple 2x2 grid, with some specifc cell styling (border)</p>
-<pre><code class="language-html"><span class="hl-1">&lt;</span><span class="hl-2">html</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-0">  </span><span class="hl-1">&lt;</span><span class="hl-2">dd-code</span><span class="hl-0"> </span><span class="hl-4">slotStyle</span><span class="hl-0">=</span><span class="hl-5">&quot;border: 1px solid black;&quot;</span><br/><span class="hl-0">           </span><span class="hl-4">dim</span><span class="hl-0">=</span><span class="hl-5">&quot;70 30; 50 50;&quot;</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;</span><span class="hl-2">div</span><span class="hl-0"> </span><span class="hl-4">slot</span><span class="hl-0">=</span><span class="hl-5">&quot;1&quot;</span><span class="hl-1">&gt;</span><br/><span class="hl-0">       I should be 70 percent wide whereas my neighbour should only be 30.</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;/</span><span class="hl-2">div</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;</span><span class="hl-2">div</span><span class="hl-0"> </span><span class="hl-4">slot</span><span class="hl-0">=</span><span class="hl-5">&quot;2&quot;</span><span class="hl-0"> </span><span class="hl-4">style</span><span class="hl-0">=</span><span class="hl-5">&quot;background-color:blue;&quot;</span><span class="hl-1">&gt;</span><br/><span class="hl-0">       Am I only 30? There is nothing wrong with being 30 :&#39;-(.</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;/</span><span class="hl-2">div</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;</span><span class="hl-2">div</span><span class="hl-0"> </span><span class="hl-4">slot</span><span class="hl-0">=</span><span class="hl-5">&quot;3&quot;</span><span class="hl-1">&gt;</span><br/><span class="hl-0">       We should be 50-50, not unlike Belgian taxes</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;/</span><span class="hl-2">div</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;</span><span class="hl-2">div</span><span class="hl-0"> </span><span class="hl-4">slot</span><span class="hl-0">=</span><span class="hl-5">&quot;4&quot;</span><span class="hl-1">&gt;</span><br/><span class="hl-0">       Slot 4 also here.</span><br/><span class="hl-0">     </span><span class="hl-1">&lt;/</span><span class="hl-2">div</span><span class="hl-1">&gt;</span><br/><span class="hl-0">   </span><span class="hl-1">&lt;/</span><span class="hl-2">dd-code</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-1">&lt;/</span><span class="hl-2">html</span><span class="hl-1">&gt;</span>
+<h3>Example</h3><p>Highlight line 1, bold line 2, and italic line 3, and highlight lines 5 and 6</p>
+<pre><code class="language-html"><span class="hl-1">&lt;</span><span class="hl-2">html</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-0">  </span><span class="hl-1">&lt;</span><span class="hl-2">dd-code</span><span class="hl-0"> </span><span class="hl-4">line-nrs</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     !!!const contentLoaded = (callback) =&gt; {</span><br/><span class="hl-0">     !!    if (document.currentScript.async) {</span><br/><span class="hl-0">     !        callback();</span><br/><span class="hl-0">         } else {</span><br/><span class="hl-0">     !!!        document.addEventListener(&#39;DOMContentLoaded&#39;, callback);</span><br/><span class="hl-0">     !!!    }</span><br/><span class="hl-0">     };</span><br/><span class="hl-0">  </span><span class="hl-1">&lt;/</span><span class="hl-2">dd-code</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-1">&lt;/</span><span class="hl-2">html</span><span class="hl-1">&gt;</span>
 </code></pre>
-<p>Whenever you do <em>not</em> include the appropriate number of slots based on your
-defined dimensions, a warning will be issued (in the form of a sample
-<b>filler</b>, with an example HTML implementation).</p>
+
+<h3>Example</h3><p>Same as previous, now using attributes</p>
+<pre><code class="language-html"><span class="hl-1">&lt;</span><span class="hl-2">html</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-0">  </span><span class="hl-1">&lt;</span><span class="hl-2">dd-code</span><span class="hl-0"> </span><span class="hl-4">line-nrs</span><span class="hl-0"> </span><span class="hl-4">hl</span><span class="hl-0">=</span><span class="hl-5">&quot;1,5-6&quot;</span><span class="hl-0"> </span><span class="hl-4">bold</span><span class="hl-0">=</span><span class="hl-5">2</span><span class="hl-0"> </span><span class="hl-4">italic</span><span class="hl-0">=</span><span class="hl-5">3</span><span class="hl-1">&gt;</span><br/><span class="hl-0">     const contentLoaded = (callback) =&gt; {</span><br/><span class="hl-0">         if (document.currentScript.async) {</span><br/><span class="hl-0">             callback();</span><br/><span class="hl-0">         } else {</span><br/><span class="hl-0">             document.addEventListener(&#39;DOMContentLoaded&#39;, callback);</span><br/><span class="hl-0">         }</span><br/><span class="hl-0">     };</span><br/><span class="hl-0">  </span><span class="hl-1">&lt;/</span><span class="hl-2">dd-code</span><span class="hl-1">&gt;</span><br/><span class="hl-0">  [...]</span><br/><span class="hl-1">&lt;/</span><span class="hl-2">html</span><span class="hl-1">&gt;</span>
+</code></pre>
 </div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
@@ -35,7 +36,7 @@ defined dimensions, a warning will be issued (in the form of a sample
 <ul class="tsd-hierarchy">
 <li><span class="target">DdCode</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L60">src/DdCode.ts:60</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L73">src/DdCode.ts:73</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -108,7 +109,8 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#autocapitalize" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>autocapitalize</span></a>
 <a href="DdCode.html#autofocus" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>autofocus</span></a>
 <a href="DdCode.html#baseURI" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>baseURI</span></a>
-<a href="DdCode.html#cellStyle" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>cell<wbr/>Style</span></a>
+<a href="DdCode.html#bgColor" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>bg<wbr/>Color</span></a>
+<a href="DdCode.html#bold" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>bold</span></a>
 <a href="DdCode.html#childElementCount" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>child<wbr/>Element<wbr/>Count</span></a>
 <a href="DdCode.html#childNodes" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>child<wbr/>Nodes</span></a>
 <a href="DdCode.html#children" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>children</span></a>
@@ -120,27 +122,31 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#clientWidth" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>client<wbr/>Width</span></a>
 <a href="DdCode.html#contentEditable" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>content<wbr/>Editable</span></a>
 <a href="DdCode.html#dataset" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>dataset</span></a>
-<a href="DdCode.html#dim" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>dim</span></a>
 <a href="DdCode.html#dir" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>dir</span></a>
 <a href="DdCode.html#draggable" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>draggable</span></a>
 <a href="DdCode.html#enterKeyHint" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>enter<wbr/>Key<wbr/>Hint</span></a>
+<a href="DdCode.html#fgColor" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>fg<wbr/>Color</span></a>
 <a href="DdCode.html#firstChild" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>first<wbr/>Child</span></a>
 <a href="DdCode.html#firstElementChild" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>first<wbr/>Element<wbr/>Child</span></a>
 <a href="DdCode.html#hidden" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>hidden</span></a>
+<a href="DdCode.html#highlight" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>highlight</span></a>
+<a href="DdCode.html#hl" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>hl</span></a>
 <a href="DdCode.html#id" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>id</span></a>
 <a href="DdCode.html#innerHTML" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>innerHTML</span></a>
 <a href="DdCode.html#innerText" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>inner<wbr/>Text</span></a>
 <a href="DdCode.html#inputMode" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>input<wbr/>Mode</span></a>
 <a href="DdCode.html#isConnected" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>is<wbr/>Connected</span></a>
 <a href="DdCode.html#isContentEditable" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>is<wbr/>Content<wbr/>Editable</span></a>
-<a href="DdCode.html#lang" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>lang</span></a>
+<a href="DdCode.html#italic" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>italic</span></a>
+<a href="DdCode.html#lang" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>lang</span></a>
 <a href="DdCode.html#lastChild" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>last<wbr/>Child</span></a>
 <a href="DdCode.html#lastElementChild" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>last<wbr/>Element<wbr/>Child</span></a>
+<a href="DdCode.html#lineNrs" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>line<wbr/>Nrs</span></a>
 <a href="DdCode.html#localName" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>local<wbr/>Name</span></a>
 <a href="DdCode.html#namespaceURI" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>namespaceURI</span></a>
 <a href="DdCode.html#nextElementSibling" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>next<wbr/>Element<wbr/>Sibling</span></a>
 <a href="DdCode.html#nextSibling" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>next<wbr/>Sibling</span></a>
-<a href="DdCode.html#noFillers" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>no<wbr/>Fillers</span></a>
+<a href="DdCode.html#noTrim" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>no<wbr/>Trim</span></a>
 <a href="DdCode.html#nodeName" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>node<wbr/>Name</span></a>
 <a href="DdCode.html#nodeType" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>node<wbr/>Type</span></a>
 <a href="DdCode.html#nodeValue" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>node<wbr/>Value</span></a>
@@ -253,15 +259,12 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#prefix" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>prefix</span></a>
 <a href="DdCode.html#previousElementSibling" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>previous<wbr/>Element<wbr/>Sibling</span></a>
 <a href="DdCode.html#previousSibling" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>previous<wbr/>Sibling</span></a>
-<a href="DdCode.html#rowStyle" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>row<wbr/>Style</span></a>
 <a href="DdCode.html#scrollHeight" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>scroll<wbr/>Height</span></a>
 <a href="DdCode.html#scrollLeft" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>scroll<wbr/>Left</span></a>
 <a href="DdCode.html#scrollTop" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>scroll<wbr/>Top</span></a>
 <a href="DdCode.html#scrollWidth" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>scroll<wbr/>Width</span></a>
 <a href="DdCode.html#shadowRoot" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>shadow<wbr/>Root</span></a>
 <a href="DdCode.html#slot" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>slot</span></a>
-<a href="DdCode.html#slotCounter" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>slot<wbr/>Counter</span></a>
-<a href="DdCode.html#slotStyle" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>slot<wbr/>Style</span></a>
 <a href="DdCode.html#spellcheck" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>spellcheck</span></a>
 <a href="DdCode.html#style" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>style</span></a>
 <a href="DdCode.html#tabIndex" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>tab<wbr/>Index</span></a>
@@ -310,7 +313,8 @@ defined dimensions, a warning will be issued (in the form of a sample
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods - Other</h3>
-<div class="tsd-index-list"><a href="DdCode.html#addEventListener" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>add<wbr/>Event<wbr/>Listener</span></a>
+<div class="tsd-index-list"><a href="DdCode.html#_getMarkupLinesFromString" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>_get<wbr/>Markup<wbr/>Lines<wbr/>From<wbr/>String</span></a>
+<a href="DdCode.html#addEventListener" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>add<wbr/>Event<wbr/>Listener</span></a>
 <a href="DdCode.html#after" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>after</span></a>
 <a href="DdCode.html#animate" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>animate</span></a>
 <a href="DdCode.html#append" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>append</span></a>
@@ -325,6 +329,7 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#compareDocumentPosition" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>compare<wbr/>Document<wbr/>Position</span></a>
 <a href="DdCode.html#contains" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>contains</span></a>
 <a href="DdCode.html#dispatchEvent" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>dispatch<wbr/>Event</span></a>
+<a href="DdCode.html#firstUpdated" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>first<wbr/>Updated</span></a>
 <a href="DdCode.html#focus" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>focus</span></a>
 <a href="DdCode.html#getAnimations" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Animations</span></a>
 <a href="DdCode.html#getAttribute" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Attribute</span></a>
@@ -338,6 +343,7 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#getElementsByTagName" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Elements<wbr/>By<wbr/>Tag<wbr/>Name</span></a>
 <a href="DdCode.html#getElementsByTagNameNS" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Elements<wbr/>By<wbr/>Tag<wbr/>NameNS</span></a>
 <a href="DdCode.html#getRootNode" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Root<wbr/>Node</span></a>
+<a href="DdCode.html#handleSlotChange" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>handle<wbr/>Slot<wbr/>Change</span></a>
 <a href="DdCode.html#hasAttribute" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>has<wbr/>Attribute</span></a>
 <a href="DdCode.html#hasAttributeNS" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>has<wbr/>AttributeNS</span></a>
 <a href="DdCode.html#hasAttributes" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>has<wbr/>Attributes</span></a>
@@ -352,7 +358,6 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#isSameNode" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>is<wbr/>Same<wbr/>Node</span></a>
 <a href="DdCode.html#lookupNamespaceURI" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>lookup<wbr/>NamespaceURI</span></a>
 <a href="DdCode.html#lookupPrefix" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>lookup<wbr/>Prefix</span></a>
-<a href="DdCode.html#makeGridDim" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>make<wbr/>Grid<wbr/>Dim</span></a>
 <a href="DdCode.html#matches" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>matches</span></a>
 <a href="DdCode.html#normalize" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>normalize</span></a>
 <a href="DdCode.html#prepend" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>prepend</span></a>
@@ -365,7 +370,7 @@ defined dimensions, a warning will be issued (in the form of a sample
 <a href="DdCode.html#removeAttributeNode" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>remove<wbr/>Attribute<wbr/>Node</span></a>
 <a href="DdCode.html#removeChild" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>remove<wbr/>Child</span></a>
 <a href="DdCode.html#removeEventListener" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>remove<wbr/>Event<wbr/>Listener</span></a>
-<a href="DdCode.html#render" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>render</span></a>
+<a href="DdCode.html#render" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-protected"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>render</span></a>
 <a href="DdCode.html#replaceChild" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>replace<wbr/>Child</span></a>
 <a href="DdCode.html#replaceChildren" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>replace<wbr/>Children</span></a>
 <a href="DdCode.html#replaceWith" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>replace<wbr/>With</span></a>
@@ -416,7 +421,6 @@ defined dimensions, a warning will be issued (in the form of a sample
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods - updates</h3>
 <div class="tsd-index-list"><a href="DdCode.html#enableUpdating" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>enable<wbr/>Updating</span></a>
-<a href="DdCode.html#firstUpdated" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>first<wbr/>Updated</span></a>
 <a href="DdCode.html#getUpdateComplete" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Update<wbr/>Complete</span></a>
 <a href="DdCode.html#performUpdate" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>perform<wbr/>Update</span></a>
 <a href="DdCode.html#requestUpdate" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>request<wbr/>Update</span></a>
@@ -431,7 +435,7 @@ defined dimensions, a warning will be issued (in the form of a sample
 <section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_DdCode">new <wbr/>Dd<wbr/>Grid<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DdCode.html" class="tsd-signature-type" data-tsd-kind="Class">DdCode</a><a href="#constructor.new_DdCode" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_DdCode">new <wbr/>Dd<wbr/>Code<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DdCode.html" class="tsd-signature-type" data-tsd-kind="Class">DdCode</a><a href="#constructor.new_DdCode" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="DdCode.html" class="tsd-signature-type" data-tsd-kind="Class">DdCode</a></h4><aside class="tsd-sources">
 <p>Inherited from LitElement.constructor</p>
@@ -833,11 +837,32 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.baseURI</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10042</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="cellStyle" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>cell<wbr/>Style</span><a href="#cellStyle" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">cell<wbr/>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.slotStyle</span></div><aside class="tsd-sources">
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="bgColor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>bg<wbr/>Color</span><a href="#bgColor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">bg<wbr/>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.bgColor</span></div>
+<div class="tsd-comment tsd-typography"><p>Background color of code snippet
+Can also be set globally with the CSS variable <code>--dd-code-color-bg</code></p>
+<p>To remove background color, set to &quot;none&quot;</p>
+<p><strong>Corresponding attribute:</strong> <code>bg-color</code></p>
+<p><strong>Default value:</strong> <code>#f3f3f3</code></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L92">src/DdCode.ts:92</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L209">src/DdCode.ts:209</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="bold" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>bold</span><a href="#bold" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">bold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.bold</span></div>
+<div class="tsd-comment tsd-typography"><p>Comma-separated set of lines which need to be styled <strong>bold</strong></p>
+<ul>
+<li>for a range, use a dash, e.g.: 2-5</li>
+</ul>
+<p>Example: <code>bold=&quot;3,4,6-10&quot;</code></p>
+<p><strong>Alternative</strong>: put <code>!!</code> before the line of code (at column 0)
+(see also example above)</p>
+<p><strong>Corresponding attribute:</strong> <code>italic</code></p>
+<p><strong>Default value:</strong> <code>&quot;&quot;</code> (empty string)</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L196">src/DdCode.ts:196</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="childElementCount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>child<wbr/>Element<wbr/>Count</span><a href="#childElementCount" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">child<wbr/>Element<wbr/>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
@@ -912,11 +937,6 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.dataset</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:7548</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="dim" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>dim</span><a href="#dim" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">dim<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.dim</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L86">src/DdCode.ts:86</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="dir" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>dir</span><a href="#dir" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">dir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
@@ -935,6 +955,16 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.enterKeyHint</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:4972</li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="fgColor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>fg<wbr/>Color</span><a href="#fgColor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">fg<wbr/>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.fgColor</span></div>
+<div class="tsd-comment tsd-typography"><p>Foreground (text) color of code snippet
+Can also be set globally with the CSS variable <code>--dd-code-color-fg</code></p>
+<p><strong>Corresponding attribute:</strong> <code>fg-color</code></p>
+<p><strong>Default value:</strong> <code>black</code></p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L220">src/DdCode.ts:220</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="firstChild" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>first<wbr/>Child</span><a href="#firstChild" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">first<wbr/>Child<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ChildNode</span></div>
@@ -957,6 +987,31 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.hidden</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:6348</li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="highlight" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>highlight</span><a href="#highlight" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">highlight<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.hl</span></div>
+<div class="tsd-comment tsd-typography"><p>Alias for <a href="DdCode.html#hl">hl</a></p>
+<p><strong>Corresponding attribute:</strong> <code>highlight</code></p>
+<p><strong>Default value:</strong> <code>&quot;&quot;</code> (empty string)</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L265">src/DdCode.ts:265</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="hl" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>hl</span><a href="#hl" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">hl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.hl</span></div>
+<div class="tsd-comment tsd-typography"><p>Comma-separated set of lines which need to be highlighted</p>
+<ul>
+<li>for a range, use a dash, e.g.: 2-5</li>
+<li>for all, use hl=&quot;all&quot;</li>
+</ul>
+<p>Example: <code>hl=&quot;3,4,6-10&quot;</code></p>
+<p><strong>Alternative</strong>: put <code>!!!</code> before the line of code (at column 0)
+(see also example above)</p>
+<p><strong>Corresponding attribute:</strong> <code>hl</code></p>
+<p><strong>Default value:</strong> <code>&quot;&quot;</code> (empty string)</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L164">src/DdCode.ts:164</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="id" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>id</span><a href="#id" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -997,12 +1052,31 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.isContentEditable</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:4974</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="lang" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>lang</span><a href="#lang" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">lang<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
-<p>Inherited from LitElement.lang</p>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="italic" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>italic</span><a href="#italic" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">italic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.italic</span></div>
+<div class="tsd-comment tsd-typography"><p>Comma-separated set of lines which need to be styled <em>italic</em></p>
 <ul>
-<li>Defined in node_modules/typescript/lib/lib.dom.d.ts:6350</li></ul></aside></section>
+<li>for a range, use a dash, e.g.: 2-5</li>
+</ul>
+<p>Example: <code>italic=&quot;3,4,6-10&quot;</code></p>
+<p><strong>Alternative</strong>: put <code>!</code> before the line of code (at column 0)
+(see also example above)</p>
+<p><strong>Corresponding attribute:</strong> <code>italic</code></p>
+<p><strong>Default value:</strong> <code>&quot;&quot;</code> (empty string)</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L180">src/DdCode.ts:180</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="lang" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>lang</span><a href="#lang" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">lang<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.lang</span></div>
+<div class="tsd-comment tsd-typography"><p>Language (which will show on the right top of the code snippet)</p>
+<p><strong>Corresponding attribute:</strong> <code>lang</code></p>
+<p><strong>Default value:</strong> <code>&quot;&quot;</code> (empty string)</p>
+</div><aside class="tsd-sources">
+<p>Overrides LitElement.lang</p>
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L230">src/DdCode.ts:230</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="lastChild" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>last<wbr/>Child</span><a href="#lastChild" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">last<wbr/>Child<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ChildNode</span></div>
@@ -1019,6 +1093,15 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.lastElementChild</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10413</li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="lineNrs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>line<wbr/>Nrs</span><a href="#lineNrs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">line<wbr/>Nrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.lineNrs</span></div>
+<div class="tsd-comment tsd-typography"><p>Line numbers (toggle on/off)</p>
+<p><strong>Corresponding attribute:</strong> <code>line-nrs</code></p>
+<p><strong>Default value:</strong> <code>false</code></p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L241">src/DdCode.ts:241</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="localName" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>local<wbr/>Name</span><a href="#localName" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">local<wbr/>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -1051,11 +1134,18 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.nextSibling</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10052</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="noFillers" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>no<wbr/>Fillers</span><a href="#noFillers" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">no<wbr/>Fillers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.noFillers</span></div><aside class="tsd-sources">
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="noTrim" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>no<wbr/>Trim</span><a href="#noTrim" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">no<wbr/>Trim<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.noTrim</span></div>
+<div class="tsd-comment tsd-typography"><p>Do not trim (white spaces and newlines)</p>
+<p>By default, the first line of code is set to the first <strong>non</strong>-whitespace
+(or newline) character within <code>&lt;dd-code&gt;</code>. This is moreover used as the
+&quot;base column&quot; for indentation (upper-left).</p>
+<p><strong>Corresponding attribute:</strong> <code>no-trim</code></p>
+<p><strong>Default value:</strong> <code>false</code></p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L98">src/DdCode.ts:98</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L255">src/DdCode.ts:255</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="nodeName" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>node<wbr/>Name</span><a href="#nodeName" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">node<wbr/>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -1935,11 +2025,6 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.previousSibling</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10065</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="rowStyle" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>row<wbr/>Style</span><a href="#rowStyle" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">row<wbr/>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.rowStyle</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L95">src/DdCode.ts:95</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="scrollHeight" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>scroll<wbr/>Height</span><a href="#scrollHeight" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">scroll<wbr/>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
@@ -1980,16 +2065,6 @@ defined dimensions, a warning will be issued (in the form of a sample
 <p>Inherited from LitElement.slot</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:4881</li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="slotCounter" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>slot<wbr/>Counter</span><a href="#slotCounter" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">slot<wbr/>Counter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L101">src/DdCode.ts:101</a></li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="slotStyle" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>slot<wbr/>Style</span><a href="#slotStyle" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">slot<wbr/>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = DEFAULT_ATTRIBUTES.slotStyle</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L89">src/DdCode.ts:89</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="spellcheck" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>spellcheck</span><a href="#spellcheck" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">spellcheck<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div><aside class="tsd-sources">
@@ -2071,22 +2146,47 @@ variables</strong> (including their default values):</p>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong><code>--dd-codespace-row</code></strong></td>
-<td align="left"><code>10px</code></td>
-<td align="left">space between grid rows</td>
+<td align="left"><strong><code>--dd-code-color-hl</code></strong></td>
+<td align="left"><code>rgba(251, 247, 25, 0.8)</code></td>
+<td align="left">highlight color</td>
 </tr>
 <tr>
-<td align="left"><strong><code>--dd-codespace-col</code></strong></td>
-<td align="left"><code>10px</code></td>
-<td align="left">space between grid columns</td>
+<td align="left"><strong><code>--dd-code-line-height</code></strong></td>
+<td align="left"><code>1em</code></td>
+<td align="left">line height for codeblock</td>
+</tr>
+<tr>
+<td align="left"><strong><code>--dd-code-padding</code></strong></td>
+<td align="left"><code>1em</code></td>
+<td align="left">padding for codeblock  (can be set for top,right,bottom,left)</td>
+</tr>
+<tr>
+<td align="left"><strong><code>--dd-code-padding-line-nr</code></strong></td>
+<td align="left"><code>1.5em</code></td>
+<td align="left">right padding for line numbers (space between nr and code)</td>
+</tr>
+<tr>
+<td align="left"><strong><code>--dd-code-color-bg</code></strong></td>
+<td align="left"><code>f3f3f3</code></td>
+<td align="left">codeblock background color</td>
+</tr>
+<tr>
+<td align="left"><strong><code>--dd-code-color-fg</code></strong></td>
+<td align="left"><code>black</code></td>
+<td align="left">codeblock foreground (text) color</td>
+</tr>
+<tr>
+<td align="left"><strong><code>--dd-code-color-lang</code></strong></td>
+<td align="left"><code>rgba(0,0,0,0.6)</code></td>
+<td align="left">color for language indicator</td>
 </tr>
 </tbody></table>
 <p>The variables can be set anywhere in your HTML context (e.g. in <code>:root</code>,
-up until the <code>dd-slide-collection</code> component itself).</p>
+up until the <code>dd-code</code> component itself).</p>
 </div><aside class="tsd-sources">
 <p>Overrides LitElement.styles</p>
 <ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L75">src/DdCode.ts:75</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L93">src/DdCode.ts:93</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>dev-mode Properties</h2>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="disableWarning" class="tsd-anchor"></a>
@@ -2291,6 +2391,21 @@ before fulfilling this Promise. To do this, first await
 <li>Defined in node_modules/@lit/reactive-element/reactive-element.d.ts:654</li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Other Methods</h2>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="_getMarkupLinesFromString" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>_get<wbr/>Markup<wbr/>Lines<wbr/>From<wbr/>String</span><a href="#_getMarkupLinesFromString" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="_getMarkupLinesFromString._getMarkupLinesFromString-1">_get<wbr/>Markup<wbr/>Lines<wbr/>From<wbr/>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>boldLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>hlLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>italicLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><a href="#_getMarkupLinesFromString._getMarkupLinesFromString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>boldLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>hlLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>italicLinesArr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter">
+<h5>bold<wbr/>Lines<wbr/>Arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span></h5></li>
+<li class="tsd-parameter">
+<h5>hl<wbr/>Lines<wbr/>Arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span></h5></li>
+<li class="tsd-parameter">
+<h5>italic<wbr/>Lines<wbr/>Arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol">[]</span></h5></li></ul><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L279">src/DdCode.ts:279</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="addEventListener" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>add<wbr/>Event<wbr/>Listener</span><a href="#addEventListener" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -2588,6 +2703,15 @@ before fulfilling this Promise. To do this, first await
 <p>Inherited from LitElement.dispatchEvent</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:5138</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="firstUpdated" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>first<wbr/>Updated</span><a href="#firstUpdated" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="firstUpdated.firstUpdated-1">first<wbr/>Updated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#firstUpdated.firstUpdated-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<p>Overrides LitElement.firstUpdated</p>
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L364">src/DdCode.ts:364</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="focus" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>focus</span><a href="#focus" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -2829,6 +2953,19 @@ before fulfilling this Promise. To do this, first await
 <p>Inherited from LitElement.getRootNode</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10075</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="handleSlotChange" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>handle<wbr/>Slot<wbr/>Change</span><a href="#handleSlotChange" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="handleSlotChange.handleSlotChange-1">handle<wbr/>Slot<wbr/>Change<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#handleSlotChange.handleSlotChange-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>e: <span class="tsd-signature-type">Event</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L311">src/DdCode.ts:311</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="hasAttribute" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>has<wbr/>Attribute</span><a href="#hasAttribute" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -3040,14 +3177,6 @@ before fulfilling this Promise. To do this, first await
 <p>Inherited from LitElement.lookupPrefix</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:10084</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="makeGridDim" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>make<wbr/>Grid<wbr/>Dim</span><a href="#makeGridDim" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-<li class="tsd-signature tsd-anchor-link" id="makeGridDim.makeGridDim-1">make<wbr/>Grid<wbr/>Dim<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#makeGridDim.makeGridDim-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
-<li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L104">src/DdCode.ts:104</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="matches" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>matches</span><a href="#matches" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -3341,15 +3470,15 @@ before fulfilling this Promise. To do this, first await
 <p>Inherited from LitElement.removeEventListener</p>
 <ul>
 <li>Defined in node_modules/typescript/lib/lib.dom.d.ts:6365</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="render" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>render</span><a href="#render" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a id="render" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>render</span><a href="#render" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 <li class="tsd-signature tsd-anchor-link" id="render.render-1">render<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">&gt;</span><a href="#render.render-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TemplateResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Overrides LitElement.render</p>
 <ul>
-<li>Defined in <a href="https://gitlab.com/digital-dasein/software/html-presentations/dd-code/-/blob/4d4040d/src/DdCode.ts#L194">src/DdCode.ts:194</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/digitaldasein/dd-code/blob/9b267d1/src/DdCode.ts#L370">src/DdCode.ts:370</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="replaceChild" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>replace<wbr/>Child</span><a href="#replaceChild" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -3932,29 +4061,6 @@ update.</p>
 <p>Inherited from LitElement.enableUpdating</p>
 <ul>
 <li>Defined in node_modules/@lit/reactive-element/reactive-element.d.ts:538</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a id="firstUpdated" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>first<wbr/>Updated</span><a href="#firstUpdated" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external">
-<li class="tsd-signature tsd-anchor-link" id="firstUpdated.firstUpdated-1">first<wbr/>Updated<span class="tsd-signature-symbol">(</span>_changedProperties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PropertyValueMap</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#firstUpdated.firstUpdated-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Invoked when the element is first updated. Implement to perform one time
-work on the element after update.</p>
-<pre><code class="language-ts"><span class="hl-8">firstUpdated</span><span class="hl-0">() {</span><br/><span class="hl-0">  </span><span class="hl-11">this</span><span class="hl-0">.</span><span class="hl-10">renderRoot</span><span class="hl-0">.</span><span class="hl-8">getElementById</span><span class="hl-0">(</span><span class="hl-7">&#39;my-text-area&#39;</span><span class="hl-0">).</span><span class="hl-8">focus</span><span class="hl-0">();</span><br/><span class="hl-0">}</span>
-</code></pre>
-<p>Setting properties inside this method will trigger the element to update
-again after this update cycle completes.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5>_changedProperties: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PropertyValueMap</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-<div class="tsd-comment tsd-typography"><p>Map of changed properties with old values</p>
-</div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
-<p>Inherited from LitElement.firstUpdated</p>
-<ul>
-<li>Defined in node_modules/@lit/reactive-element/reactive-element.d.ts:725</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a id="getUpdateComplete" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>get<wbr/>Update<wbr/>Complete</span><a href="#getUpdateComplete" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external">
@@ -4147,11 +4253,11 @@ properties and are used in the rest of the update process.</p>
 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
 <div class="tsd-accordion-details">
 <ul>
-<li><a href="../modules.html">@digitaldasein/dd-<wbr/>grid</a>
+<li><a href="../modules.html">@digitaldasein/dd-<wbr/>code</a>
 <ul></ul></li></ul></div></details></nav>
 <nav class="tsd-navigation secondary menu-sticky">
 <ul>
-<li class="current tsd-kind-class"><a href="DdCode.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg><span>Dd<wbr/>Grid</span></a>
+<li class="current tsd-kind-class"><a href="DdCode.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg><span>Dd<wbr/>Code</span></a>
 <ul>
 <li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-512-path"></use><use href="#icon-512-text"></use></svg>constructor</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#ATTRIBUTE_NODE" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>ATTRIBUTE_<wbr/>NODE</a></li>
@@ -4215,7 +4321,8 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#autocapitalize" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>autocapitalize</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#autofocus" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>autofocus</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#baseURI" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>baseURI</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#cellStyle" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>cell<wbr/>Style</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#bgColor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>bg<wbr/>Color</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#bold" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>bold</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#childElementCount" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>child<wbr/>Element<wbr/>Count</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#childNodes" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>child<wbr/>Nodes</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#children" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>children</a></li>
@@ -4227,14 +4334,16 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#clientWidth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>client<wbr/>Width</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#contentEditable" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>content<wbr/>Editable</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#dataset" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>dataset</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#dim" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>dim</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#dir" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>dir</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#draggable" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>draggable</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#enterKeyHint" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>enter<wbr/>Key<wbr/>Hint</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#fgColor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>fg<wbr/>Color</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#firstChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>first<wbr/>Child</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#firstElementChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>first<wbr/>Element<wbr/>Child</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#hasUpdated" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>has<wbr/>Updated</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#hidden" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>hidden</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#highlight" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>highlight</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#hl" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>hl</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#id" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>id</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#innerHTML" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>innerHTML</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#innerText" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>inner<wbr/>Text</a></li>
@@ -4242,14 +4351,16 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#isConnected" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>is<wbr/>Connected</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#isContentEditable" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>is<wbr/>Content<wbr/>Editable</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#isUpdatePending" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>is<wbr/>Update<wbr/>Pending</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#lang" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>lang</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#italic" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>italic</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#lang" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>lang</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#lastChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>last<wbr/>Child</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#lastElementChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>last<wbr/>Element<wbr/>Child</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#lineNrs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>line<wbr/>Nrs</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#localName" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>local<wbr/>Name</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#namespaceURI" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>namespaceURI</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#nextElementSibling" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>next<wbr/>Element<wbr/>Sibling</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#nextSibling" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>next<wbr/>Sibling</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#noFillers" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>no<wbr/>Fillers</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#noTrim" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>no<wbr/>Trim</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#nodeName" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>node<wbr/>Name</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#nodeType" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>node<wbr/>Type</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#nodeValue" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>node<wbr/>Value</a></li>
@@ -4364,15 +4475,12 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#previousSibling" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>previous<wbr/>Sibling</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#renderOptions" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>render<wbr/>Options</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#renderRoot" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>render<wbr/>Root</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#rowStyle" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>row<wbr/>Style</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#scrollHeight" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>scroll<wbr/>Height</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#scrollLeft" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>scroll<wbr/>Left</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#scrollTop" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>scroll<wbr/>Top</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#scrollWidth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>scroll<wbr/>Width</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#shadowRoot" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>shadow<wbr/>Root</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#slot" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>slot</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#slotCounter" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>slot<wbr/>Counter</a></li>
-<li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#slotStyle" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>slot<wbr/>Style</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#spellcheck" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>spellcheck</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#style" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>style</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#tabIndex" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>tab<wbr/>Index</a></li>
@@ -4393,6 +4501,7 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-property tsd-parent-kind-class"><a href="DdCode.html#styles" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>styles</a></li>
 <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#updateComplete" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>update<wbr/>Complete</a></li>
 <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#observedAttributes" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg>observed<wbr/>Attributes</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="DdCode.html#_getMarkupLinesFromString" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>_get<wbr/>Markup<wbr/>Lines<wbr/>From<wbr/>String</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#addController" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>add<wbr/>Controller</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#addEventListener" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>add<wbr/>Event<wbr/>Listener</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#after" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>after</a></li>
@@ -4414,7 +4523,7 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#disconnectedCallback" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>disconnected<wbr/>Callback</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#dispatchEvent" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>dispatch<wbr/>Event</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a href="DdCode.html#enableUpdating" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>enable<wbr/>Updating</a></li>
-<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a href="DdCode.html#firstUpdated" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>first<wbr/>Updated</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="DdCode.html#firstUpdated" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>first<wbr/>Updated</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#focus" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>focus</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#getAnimations" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Animations</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#getAttribute" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Attribute</a></li>
@@ -4429,6 +4538,7 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#getElementsByTagNameNS" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Elements<wbr/>By<wbr/>Tag<wbr/>NameNS</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#getRootNode" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Root<wbr/>Node</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a href="DdCode.html#getUpdateComplete" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Update<wbr/>Complete</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="DdCode.html#handleSlotChange" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>handle<wbr/>Slot<wbr/>Change</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#hasAttribute" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>has<wbr/>Attribute</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#hasAttributeNS" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>has<wbr/>AttributeNS</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#hasAttributes" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>has<wbr/>Attributes</a></li>
@@ -4443,7 +4553,6 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#isSameNode" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>is<wbr/>Same<wbr/>Node</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#lookupNamespaceURI" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>lookup<wbr/>NamespaceURI</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#lookupPrefix" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>lookup<wbr/>Prefix</a></li>
-<li class="tsd-kind-method tsd-parent-kind-class"><a href="DdCode.html#makeGridDim" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>make<wbr/>Grid<wbr/>Dim</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#matches" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>matches</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#normalize" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>normalize</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-inherited tsd-is-external"><a href="DdCode.html#performUpdate" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>perform<wbr/>Update</a></li>
@@ -4458,7 +4567,7 @@ properties and are used in the rest of the update process.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#removeChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>remove<wbr/>Child</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#removeController" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>remove<wbr/>Controller</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#removeEventListener" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>remove<wbr/>Event<wbr/>Listener</a></li>
-<li class="tsd-kind-method tsd-parent-kind-class"><a href="DdCode.html#render" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>render</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="DdCode.html#render" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>render</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#replaceChild" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>replace<wbr/>Child</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#replaceChildren" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>replace<wbr/>Children</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="DdCode.html#replaceWith" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>replace<wbr/>With</a></li>

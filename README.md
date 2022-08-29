@@ -9,10 +9,9 @@ SPDX-License-Identifier: MIT
 # \<dd-code>
 
 [![pipeline](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml/badge.svg)](https://github.com/digitaldasein/dd-code/actions/workflows/build.yml)
-
-[![coverage](https://gitlab.com/digital-dasein/software/html-presentations/dd-code/badges/main/coverage.svg?job=test)](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/lcov-report/)
+[![tests](https://github.com/digitaldasein/dd-code/actions/workflows/test.yml/badge.svg)](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/coverage/lcov-report/)
 [![REUSE 
-status](https://api.reuse.software/badge/gitlab.com/digital-dasein/software/html-presentations/dd-code)](https://api.reuse.software/info/gitlab.com/digital-dasein/software/html-presentations/dd-code)
+status](https://api.reuse.software/badge/github.com/digitaldasein/dd-code)](https://api.reuse.software/info/github.com/digitaldasein/dd-code)
 
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.

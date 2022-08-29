@@ -4,15 +4,15 @@
 #
 # SPDX-License-Identifier: MIT
 
-name: tests
-
+name: pages docs
 on:
   push:
-  pull_request:
+    branches:
+      - main
 
 jobs:
-  test:
-    name: Playwright Tests
+  # Single deploy job since we're just deploying
+  deploy:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
@@ -24,33 +24,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-    #container:
-      #image: mcr.microsoft.com/playwright:v1.25.0-focal
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
       - name: Install dependencies
         run: yarn install
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-      - name: Run tests
-        run: yarn run test
+      - name: Build Docs
+        run: yarn run docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload example repository
-          path: './coverage/lcov-report'
+          path: './docs'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      #- name: Code Coverage Report
-        #uses: irongut/CodeCoverageSummary@v1.3.0
-        #with:
-          #filename: coverage/cobertura-coverage.xml
-          #badge: true
-          #fail_below_min: true
-          #indicators: true
-          #output: both
-          #thresholds: '80 100'
