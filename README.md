@@ -49,6 +49,7 @@ library.
 &rarr; [go to 
 docs](https://digital-dasein.gitlab.io/software/html-presentations/dd-code/docs/classes/DdCode.html)
 
+
 ## Local Demo with `web-dev-server`
 
 
@@ -58,18 +59,6 @@ yarn start
 
 To run a local development server that serves the basic demo located in 
 `demo/index.html`
-
-### Highligh.js demo
-
-To also demonstrate compatibility with the 
-[highlighjs](https://highlightjs.org/) library, first run:
-
-```sh
-utils/get_hljs.sh
-```
-
-This downloads the appropriate files to de `demo` directory, and sets the 
-required HTML header tags in the demo `index.html`.
 
 ## Linting and formatting
 
