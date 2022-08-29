@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2022 Digital Dasein <https://digital-dasein.gitlab.io/>
+# SPDX-FileCopyrightText: 2022 Senne Van Baelen <senne@digitaldasein.org>
+# SPDX-FileCopyrightText: 2022 Gerben Peeters <gerben@digitaldasein.org>
+#
+# SPDX-License-Identifier: MIT
+
+name: tests
+
+on:
+  push:
+  pull_request:
+
+steps:
+  playwright:
+    name: 'Playwright Tests'
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.25.0-focal
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn run test
