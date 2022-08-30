@@ -95,7 +95,8 @@ export class DdCode extends LitElement {
    * |  <div style="width:200px">CSS variable</div>   | <div style="width:200px">Default</div>   | Description |
    * |:-----------------------------------------------|:-----------------------------------------|:------------|
    * |**`--dd-code-color-hl`**          |`rgba(251, 247, 25, 0.8)`    | highlight color             |
-   * |**`--dd-code-line-height`**       |`1em`    | line height for codeblock             |
+   * |**`--dd-code-line-height`**       |`1.2em`    | line height for codeblock             |
+   * |**`--dd-code-font-size`**         |`0.85em` | font-size of text inside `dd-code`                     |
    * |**`--dd-code-padding`**           |`1em`    | padding for codeblock  (can be set for top,right,bottom,left)    |
    * |**`--dd-code-padding-line-nr`**   |`1.5em`    | right padding for line numbers (space between nr and code)  |
    * |**`--dd-code-color-bg`**          |`f3f3f3`   | codeblock background color |
@@ -110,12 +111,18 @@ export class DdCode extends LitElement {
   static styles = css`
     :host {
       --color-hl: var(--dd-code-color-hl, rgba(251, 247, 25, 0.8));
-      --line-height: var(--dd-code-line-height, 1em);
+      --line-height: var(--dd-code-line-height, 1.2em);
       --padding: var(--dd-code-padding, 1em);
       --line-nr-padding: var(--dd-code-padding-line-nr, 1.5em);
       --color-bg: var(--dd-code-color-bg, #f3f3f3);
       --color-fg: var(--dd-code-color-fg, black);
       --color-lang: var(--dd-code-color-lang, rgba(0, 0, 0, 0.6));
+      --font-size:var(--dd-code-font-size, 0.85em);
+    }
+
+
+    .codeblock {
+      font-family: "Roboto Mono", monospace;
     }
 
     pre {
@@ -124,14 +131,13 @@ export class DdCode extends LitElement {
       background-color:var(--color-bg);
       color:var(--color-fg);
       margin:0;
+      overflow-x: scroll;
+      font-size:var(--font-size);
+      width:200px;
     }
 
     code {
      padding-left:var(--padding-left);
-    }
-
-    .codeblock {
-      font-family: "Roboto Mono", monospace;
     }
 
     .code-hl {

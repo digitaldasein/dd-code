@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dd-code
 Upstream-Contact: Gerben Peeters <gerben@digitaldasein.org>, Senne Van Baelen <senne@digitaldasein.org>
-Source: https://gitlab.com/digital-dasein/software/html-presentations/dd-code
+Source: https://github.com/digitaldasein/dd-code
 
 Files: examples/*
 Copyright: $YEAR $NAME Digital Dasein <https://digitaldasein.org>
