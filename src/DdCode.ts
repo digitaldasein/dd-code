@@ -132,7 +132,6 @@ export class DdCode extends LitElement {
       background-color:var(--color-bg);
       color:var(--color-fg);
       margin:var(--margin);
-      margin-top:1em;
       overflow-x: scroll;
       font-size:var(--font-size);
     }
