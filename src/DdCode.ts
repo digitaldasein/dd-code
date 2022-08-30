@@ -114,7 +114,7 @@ export class DdCode extends LitElement {
       --color-hl: var(--dd-code-color-hl, rgba(251, 247, 25, 0.8));
       --line-height: var(--dd-code-line-height, 1.2em);
       --padding: var(--dd-code-padding, 1em);
-      --margin: var(--dd-code-margin, 0.5em 0 0 0);
+      --margin: var(--dd-code-margin, 0.5em 0 0.5em 0);
       --line-nr-padding: var(--dd-code-padding-line-nr, 1.5em);
       --color-bg: var(--dd-code-color-bg, #f3f3f3);
       --color-fg: var(--dd-code-color-fg, black);
