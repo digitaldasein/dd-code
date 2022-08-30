@@ -98,9 +98,9 @@ export class DdCode extends LitElement {
    * |**`--dd-code-line-height`**       |`1.2em`    | line height for codeblock             |
    * |**`--dd-code-font-size`**         |`0.85em` | font-size of text inside `dd-code`                     |
    * |**`--dd-code-padding`**           |`1em`    | padding for codeblock  (can be set for top,right,bottom,left)    |
-   * |**`--dd-code-margin`**            |`0.5em 0 0 0`    | margin for codeblock    |
+   * |**`--dd-code-margin`**            |`0.5em 0 0.5em 0`    | margin for codeblock    |
    * |**`--dd-code-padding-line-nr`**   |`1.5em`    | right padding for line numbers (space between nr and code)  |
-   * |**`--dd-code-color-bg`**          |`f3f3f3`   | codeblock background color |
+   * |**`--dd-code-color-bg`**          |`#f3f3f3`   | codeblock background color |
    * |**`--dd-code-color-fg`**          |`black`    | codeblock foreground (text) color |
    * |**`--dd-code-color-lang`**        |`rgba(0,0,0,0.6)`    | color for language indicator |
    *
@@ -119,7 +119,7 @@ export class DdCode extends LitElement {
       --color-bg: var(--dd-code-color-bg, #f3f3f3);
       --color-fg: var(--dd-code-color-fg, black);
       --color-lang: var(--dd-code-color-lang, rgba(0, 0, 0, 0.6));
-      --font-size:var(--dd-code-font-size, 0.85em);
+      --font-size:var(--dd-code-font-size, 1.85em);
     }
 
     .codeblock {
@@ -162,10 +162,11 @@ export class DdCode extends LitElement {
     }
     .lang {
       position:absolute;
-      top:5px;
-      right:5px;
-      font-size:0.85em;
+      top:7px;
+      right:7px;
+      font-size:calc(0.85 * var(--font-size));
       color:var(--color-lang);
+      line-height:1em;
     }
   `;
 
