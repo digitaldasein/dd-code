@@ -133,7 +133,6 @@ export class DdCode extends LitElement {
       margin:0;
       overflow-x: scroll;
       font-size:var(--font-size);
-      width:200px;
     }
 
     code {
