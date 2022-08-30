@@ -98,6 +98,7 @@ export class DdCode extends LitElement {
    * |**`--dd-code-line-height`**       |`1.2em`    | line height for codeblock             |
    * |**`--dd-code-font-size`**         |`0.85em` | font-size of text inside `dd-code`                     |
    * |**`--dd-code-padding`**           |`1em`    | padding for codeblock  (can be set for top,right,bottom,left)    |
+   * |**`--dd-code-margin`**            |`1em 0 0 0`    | margin for codeblock    |
    * |**`--dd-code-padding-line-nr`**   |`1.5em`    | right padding for line numbers (space between nr and code)  |
    * |**`--dd-code-color-bg`**          |`f3f3f3`   | codeblock background color |
    * |**`--dd-code-color-fg`**          |`black`    | codeblock foreground (text) color |
@@ -113,13 +114,13 @@ export class DdCode extends LitElement {
       --color-hl: var(--dd-code-color-hl, rgba(251, 247, 25, 0.8));
       --line-height: var(--dd-code-line-height, 1.2em);
       --padding: var(--dd-code-padding, 1em);
+      --margin: var(--dd-code-margin, 1em 0 0 0);
       --line-nr-padding: var(--dd-code-padding-line-nr, 1.5em);
       --color-bg: var(--dd-code-color-bg, #f3f3f3);
       --color-fg: var(--dd-code-color-fg, black);
       --color-lang: var(--dd-code-color-lang, rgba(0, 0, 0, 0.6));
       --font-size:var(--dd-code-font-size, 0.85em);
     }
-
 
     .codeblock {
       font-family: "Roboto Mono", monospace;
@@ -130,7 +131,8 @@ export class DdCode extends LitElement {
       line-height:var(--line-height);
       background-color:var(--color-bg);
       color:var(--color-fg);
-      margin:0;
+      margin:var(--margin);
+      margin-top:1em;
       overflow-x: scroll;
       font-size:var(--font-size);
     }
