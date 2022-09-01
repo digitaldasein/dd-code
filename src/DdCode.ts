@@ -346,20 +346,25 @@ export class DdCode extends LitElement {
 
     let codeString = codeNode.textContent;
     // contain more than just #text node (interpreted as HTML markup)
-    if (this.childNodes.length > 1){
+
+    if (this.childNodes.length > 1 || this.lang.toUpperCase() === "HTML" ){
       codeString = this.innerHTML;
       codeString = codeString.replace(/</g,"&lt;");
       codeString = codeString.replace(/>/g,"&gt;");
     }
 
-    const allCode = codeString.replace(/^\n|\n$/g, '');
+    let allCode = codeString
+    if (!this.noTrim)
+        allCode = allCode.replace(/^\n|\n$/g, '');
     const allCodeLines = allCode.split('\n');
 
     let indent = 0;
     const firstLine = allCodeLines[0].split(" ");
-    for (const checkSpace of firstLine){
-      if (checkSpace !== "") break;
-      indent++;
+    if (!this.noTrim){
+      for (const checkSpace of firstLine){
+        if (checkSpace !== "") break;
+        indent++;
+      }
     }
 
     if (allCodeLines[allCodeLines.length -1].trim().length === 0 &&

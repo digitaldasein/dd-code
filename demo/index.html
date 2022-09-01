@@ -58,11 +58,29 @@ font-family: "Roboto";
 
       <h4>Example 3: a piece HTML code, with auto-escpating &gt; and &lt;</h4>
       <dd-code lang=HTML>
-        !!!<h2>Automatically escpation HTML markup tags</h2>
+        !!!<h2>Automatically escape HTML markup tags</h2>
         <div class="someclass">
           <p>And a p element</p>
         </div>
       </dd-code>
+
+      <h4>Example 4: no auto-trim (and thus no auto-indent) based on first line of code</h4>
+      <p>This does not work with inline "!" markup</p>
+      <dd-code lang=HTML no-trim>
+        <h2>Automatically escape HTML markup tags</h2>
+        <div class="someclass">
+          <p>And a p element</p>
+        </div>
+      </dd-code>
+
+      <h4>Example 5: When using escaped HTML tags make sure to set lang to HTML</h4>
+      <dd-code lang=HTML>
+          &lt;section class="slide"&gt;
+            My slide content, which will not have any built-in style
+          &lt;/section&gt;
+      </dd-code>
+
+
       `,
       document.querySelector('#demo')
     );
