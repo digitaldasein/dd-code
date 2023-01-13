@@ -43,6 +43,10 @@ font-family: "Roboto";
                 document.addEventListener('DOMContentLoaded', callback);
             }
         };
+        let var1 = "string1";
+        let var2 = "string2";
+        let var3 = "string3";
+        // and this is line 11
       </dd-code>
 
       <h4>Example 2: a piece of JS code</h4>
@@ -80,7 +84,16 @@ font-family: "Roboto";
           &lt;/section&gt;
       </dd-code>
 
-
+      <h4>Example 6: two code pieces</h4>
+      <dd-code line-nrs>
+        const contentLoaded = (callback) => {
+           if (document.currentScript.async) {
+                callback();
+            } else {
+                document.addEventListener('DOMContentLoaded', callback);
+            }
+        };
+      </dd-code>
       `,
       document.querySelector('#demo')
     );

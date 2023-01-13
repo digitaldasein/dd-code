@@ -16,7 +16,7 @@ const DEFAULT_ATTRIBUTES = {
   fgColor: 'black',
   lineNrs: false,
   noTrim: false,
-  lang: "",
+  lang: '',
 };
 
 /**
@@ -112,61 +112,66 @@ export class DdCode extends LitElement {
   static styles = css`
     :host {
       --color-hl: var(--dd-code-color-hl, rgba(251, 247, 25, 0.8));
-      --line-height: var(--dd-code-line-height, 1.2em);
+      --line-height: var(--dd-code-line-height, 1em);
       --padding: var(--dd-code-padding, 1em);
       --margin: var(--dd-code-margin, 0.5em 0 0.5em 0);
-      --line-nr-padding: var(--dd-code-padding-line-nr, 1.5em);
+      --line-nr-padding: var(--dd-code-padding-line-nr, 1em);
       --color-bg: var(--dd-code-color-bg, #f3f3f3);
       --color-fg: var(--dd-code-color-fg, black);
       --color-lang: var(--dd-code-color-lang, rgba(0, 0, 0, 0.6));
-      --font-size:var(--dd-code-font-size, 1.85em);
+      --font-size: var(--dd-code-font-size, 1.85em);
     }
 
     .codeblock {
-      font-family: "Roboto Mono", monospace;
+      font-family: 'Roboto Mono', monospace;
     }
 
     pre {
-      padding:var(--padding);
-      line-height:var(--line-height);
-      background-color:var(--color-bg);
-      color:var(--color-fg);
-      margin:var(--margin);
+      padding: var(--padding);
+      line-height: var(--line-height);
+      background-color: var(--color-bg);
+      color: var(--color-fg);
+      margin: var(--margin);
       overflow-x: scroll;
-      font-size:var(--font-size);
+      font-size: var(--font-size);
     }
 
     code {
-     padding-left:var(--padding-left);
+      padding-left: var(--padding-left);
     }
 
     .code-hl {
-      background-color:var(--color-hl);
+      background-color: var(--color-hl);
     }
     .code-bold {
-      font-weight:bold;
+      font-weight: bold;
     }
     .code-italic {
-      font-style:italic;
+      font-style: italic;
     }
 
     .line-nr {
-      font-weight:normal;
-      font-style:normal;
-      padding-right: var(--line-nr-padding);
+      display: inline-block;
+      font-weight: normal;
+      font-style: normal;
+      padding-right: 0.3em;
+      margin-right: var(--line-nr-padding);
+      min-width: 1.2em;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+      line-height: 1.55em;
     }
 
     .code-container {
-      font-family: "Roboto Mono", monospace;
-      position:relative;
+      font-family: 'Roboto Mono', monospace;
+      position: relative;
     }
     .lang {
-      position:absolute;
-      top:7px;
-      right:7px;
-      font-size:calc(0.85 * var(--font-size));
-      color:var(--color-lang);
-      line-height:1em;
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      font-size: calc(0.85 * var(--font-size));
+      color: var(--color-lang);
+      line-height: 1em;
     }
   `;
 
@@ -258,7 +263,6 @@ export class DdCode extends LitElement {
   @property({ type: String, attribute: 'lang' })
   lang = DEFAULT_ATTRIBUTES.lang;
 
-
   /**
    * Line numbers (toggle on/off)
    *
@@ -295,7 +299,7 @@ export class DdCode extends LitElement {
 
   /** @ignore */
   @property({ type: String })
-  codeHtml = "";
+  codeHtml = '';
 
   /* Make codo block */
   /*
@@ -306,29 +310,29 @@ export class DdCode extends LitElement {
    */
 
   _getMarkupLinesFromString() {
-    const _range = (size:Number, startAt = 0) =>
+    const _range = (size: Number, startAt = 0) =>
       [...Array(size).keys()].map(i => i + startAt);
 
-    const _computeNrArr = (prop:string) => {
-      const arr:Number[] = [];
-      if (prop){
-        const lines = prop.split(",");
+    const _computeNrArr = (prop: string) => {
+      const arr: Number[] = [];
+      if (prop) {
+        const lines = prop.split(',');
         for (const sNr of lines) {
           const nr = Number(sNr.trim());
           if (!Number.isNaN(nr)) arr.push(nr);
           else {
-            const range = sNr.split("-");
-            if (range.length === 2){
+            const range = sNr.split('-');
+            if (range.length === 2) {
               const start = Number(range[0].trim());
               const end = Number(range[1].trim());
               if (!Number.isNaN(start) && !Number.isNaN(end))
-                arr.push(... _range((end-start + 1), start));
+                arr.push(..._range(end - start + 1, start));
             }
           }
         }
       }
       return arr;
-    }
+    };
 
     const hlLinesArr = _computeNrArr(this.hl);
     const boldLinesArr = _computeNrArr(this.bold);
@@ -337,70 +341,75 @@ export class DdCode extends LitElement {
     return { hlLinesArr, boldLinesArr, italicLinesArr };
   }
 
-  handleSlotChange(e:Event) {
-    const childNodes = (e.target as HTMLSlotElement).assignedNodes({flatten: true});
+  handleSlotChange(e: Event) {
+    const childNodes = (e.target as HTMLSlotElement).assignedNodes({
+      flatten: true,
+    });
     const codeNode = childNodes[0];
 
     /* c8 ignore next */
-    if ( !codeNode.textContent ) return;
+    if (!codeNode.textContent) return;
 
     let codeString = codeNode.textContent;
     // contain more than just #text node (interpreted as HTML markup)
 
-    if (this.childNodes.length > 1 || this.lang.toUpperCase() === "HTML" ){
+    if (this.childNodes.length > 1 || this.lang.toUpperCase() === 'HTML') {
       codeString = this.innerHTML;
-      codeString = codeString.replace(/</g,"&lt;");
-      codeString = codeString.replace(/>/g,"&gt;");
+      codeString = codeString.replace(/</g, '&lt;');
+      codeString = codeString.replace(/>/g, '&gt;');
     }
 
-    let allCode = codeString
-    if (!this.noTrim)
-        allCode = allCode.replace(/^\n|\n$/g, '');
+    let allCode = codeString;
+    if (!this.noTrim) allCode = allCode.replace(/^\n|\n$/g, '');
     const allCodeLines = allCode.split('\n');
 
     let indent = 0;
-    const firstLine = allCodeLines[0].split(" ");
-    if (!this.noTrim){
-      for (const checkSpace of firstLine){
-        if (checkSpace !== "") break;
+    const firstLine = allCodeLines[0].split(' ');
+    if (!this.noTrim) {
+      for (const checkSpace of firstLine) {
+        if (checkSpace !== '') break;
         indent++;
       }
     }
 
-    if (allCodeLines[allCodeLines.length -1].trim().length === 0 &&
-        !this.noTrim)
+    if (
+      allCodeLines[allCodeLines.length - 1].trim().length === 0 &&
+      !this.noTrim
+    )
       allCodeLines.pop();
 
     const markup = this._getMarkupLinesFromString();
 
     const codeLines = [];
-    for (const [idx, codeLine] of allCodeLines.entries()){
+    for (const [idx, codeLine] of allCodeLines.entries()) {
       const line = codeLine.slice(indent);
       let lineNr = ``;
-      if (this.lineNrs)
-        lineNr = `<span class="line-nr">${idx + 1}</span>`;
-      if (codeLine.substring(indent,indent+3) === "!!!")
-        codeLines.push(`<code class="code-hl">${lineNr}${line.slice(3)}</code>`);
-      else if (markup.hlLinesArr.includes(idx+1))
-        codeLines.push(`<code class="code-hl">${lineNr}${line}</code>`);
-      else if (codeLine.substring(indent,indent+2) === "!!")
-        codeLines.push(`<code class="code-bold">${lineNr}${line.slice(2)}</code>`);
-      else if (markup.boldLinesArr.includes(idx+1))
-        codeLines.push(`<code class="code-bold">${lineNr}${line}</code>`);
-      else if (codeLine.substring(indent,indent+1) === "!")
-        codeLines.push(`<code class="code-italic">${lineNr}${line.slice(1)}</code>`);
-      else if (markup.italicLinesArr.includes(idx+1))
-        codeLines.push(`<code class="code-italic">${lineNr}${line}</code>`);
+      if (this.lineNrs) lineNr = `<code class="line-nr">${idx + 1}</code>`;
+      if (codeLine.substring(indent, indent + 3) === '!!!')
+        codeLines.push(
+          `${lineNr}<code class="code-hl">${line.slice(3)}</code>`
+        );
+      else if (markup.hlLinesArr.includes(idx + 1))
+        codeLines.push(`${lineNr}<code class="code-hl">${line}</code>`);
+      else if (codeLine.substring(indent, indent + 2) === '!!')
+        codeLines.push(
+          `${lineNr}<code class="code-bold">${line.slice(2)}</code>`
+        );
+      else if (markup.boldLinesArr.includes(idx + 1))
+        codeLines.push(`${lineNr}<code class="code-bold">${line}</code>`);
+      else if (codeLine.substring(indent, indent + 1) === '!')
+        codeLines.push(
+          `${lineNr}<code class="code-italic">${line.slice(1)}</code>`
+        );
+      else if (markup.italicLinesArr.includes(idx + 1))
+        codeLines.push(`${lineNr}<code class="code-italic">${line}</code>`);
       else codeLines.push(`<code>${lineNr}${line}</code>`);
     }
 
-    this.codeHtml = codeLines.join("\n")
+    this.codeHtml = codeLines.join('\n');
 
-    if (this.bgColor)
-      this.style.setProperty('--color-bg', this.bgColor);
-    if (this.fgColor)
-      this.style.setProperty('--color-fg', this.fgColor);
-
+    if (this.bgColor) this.style.setProperty('--color-bg', this.bgColor);
+    if (this.fgColor) this.style.setProperty('--color-fg', this.fgColor);
   }
 
   async firstUpdated() {
