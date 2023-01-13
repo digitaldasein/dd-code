@@ -158,7 +158,6 @@ export class DdCode extends LitElement {
       margin-right: var(--line-nr-padding);
       min-width: 1.2em;
       border-right: 1px solid rgba(0, 0, 0, 0.2);
-      line-height: 1.55em;
     }
 
     .code-container {
@@ -274,6 +273,12 @@ export class DdCode extends LitElement {
   lineNrs = DEFAULT_ATTRIBUTES.lineNrs;
 
   /**
+   * See Line numbers (toggle on/off)
+   */
+  @property({ type: Boolean, attribute: 'lnrs' })
+  lineNrsAlt = DEFAULT_ATTRIBUTES.lineNrs;
+
+  /**
    * Do not trim (white spaces and newlines)
    *
    * **Corresponding attribute:** `no-trim`
@@ -379,6 +384,8 @@ export class DdCode extends LitElement {
       allCodeLines.pop();
 
     const markup = this._getMarkupLinesFromString();
+
+    if (this.lineNrsAlt) this.lineNrs = this.lineNrsAlt;
 
     const codeLines = [];
     for (const [idx, codeLine] of allCodeLines.entries()) {
